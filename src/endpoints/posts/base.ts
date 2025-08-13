@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const post = z.object({
-  Id: z.number().int(),
+  id: z.number().int(),
   name: z.string(),
   institution: z.string(),
   course: z.string(),

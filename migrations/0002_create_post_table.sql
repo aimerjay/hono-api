@@ -1,5 +1,5 @@
 -- Migration: Create post table
-CREATE TABLE IF NOT EXISTS posts (
+CREATE TABLE IF NOT EXISTS post (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     name TEXT NOT NULL,
     institution TEXT NOT NULL,
