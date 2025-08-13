@@ -6,6 +6,5 @@ import { HandleArgs } from "../../types";
 export class PostDelete extends D1DeleteEndpoint <HandleArgs>  {
   _meta = {
     model: PostModel,
-    idField: "Id",
   };
 }

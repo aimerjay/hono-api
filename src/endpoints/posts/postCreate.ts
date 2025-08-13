@@ -6,13 +6,13 @@ import { PostModel } from "./base";
 export class PostCreate extends D1CreateEndpoint<HandleArgs>  {
   _meta = {
     model: PostModel,
-    fields: {
+    fields: PostModel.schema.pick({
       name: true,
       institution: true,
       course: true,
       date_grad: true,
       testimony: true,
       // timestamp is auto
-    },
+    }),
   };
 }
