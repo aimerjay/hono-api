@@ -1,0 +1,12 @@
+node_modules/
+.env
+.wrangler
+dist/
+build/
+.DS_Store
+*.log
+coverage/
+.vscode
+*.tsbuildinfo
+*.local
+*.lock
