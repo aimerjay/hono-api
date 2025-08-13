@@ -12,7 +12,7 @@ export const post = z.object({
 
 export const PostModel = {
   tableName: "post",
-  primaryKeys: ["Id"],
+  primaryKeys: ["id"],
   schema: post,
   serializer: (obj: object) => ({
     ...obj,
