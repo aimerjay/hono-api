@@ -14,7 +14,7 @@ export const PostModel = {
   tableName: "post",
   primaryKeys: ["Id"],
   schema: post,
-  serializer: (obj: Record<string, string | number | boolean>) => ({
+  serializer: (obj: object) => ({
     ...obj,
   }),
   serializerObject: post,
