@@ -50,4 +50,4 @@ openapi.route("/posts", postRouter);
 openapi.post("/dummy/:slug", DummyEndpoint);
 
 // Export the Hono app
-export default app;
+export default openapi;
