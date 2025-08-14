@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const post = z.object({
+export const contents = z.object({
   id: z.number().int(),
   name: z.string(),
   institution: z.string(),
@@ -10,12 +10,10 @@ export const post = z.object({
   timestamp: z.string(),
 });
 
-export const PostModel = {
-  tableName: "post",
+export const ContentsModel = {
+  tableName: "contents",
   primaryKeys: ["id"],
-  schema: post,
-  serializer: (obj: object) => ({
-    ...obj,
-  }),
-  serializerObject: post,
+  schema: contents,
+  serializer: (obj: object) => ({ ...obj }),
+  serializerObject: contents,
 };
