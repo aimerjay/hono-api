@@ -10,3 +10,22 @@ coverage/
 *.tsbuildinfo
 *.local
 *.lock
+# Cloudflare
+wrangler.toml
+wrangler.jsonc
+# TypeScript
+*.tsbuildinfo
+# OS/Editor
+Thumbs.db
+.idea/
+*.swp
+# Test output
+*.test.js
+*.test.ts
+# Misc
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# Ignore database dumps
+*.sqlite
+*.db
