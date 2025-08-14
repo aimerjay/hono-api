@@ -2,6 +2,7 @@ import { ApiException, fromHono } from "chanfana";
 import { Hono } from "hono";
 import { tasksRouter } from "./endpoints/tasks/router";
 import { contentsRouter} from "./endpoints/contents/router";
+import { applicationsRouter} from "./endpoints/applications/router";
 import { ContentfulStatusCode } from "hono/utils/http-status";
 import { DummyEndpoint } from "./endpoints/dummyEndpoint";
 
@@ -46,9 +47,9 @@ openapi.route("/tasks", tasksRouter);
 
 openapi.route("/contents", contentsRouter);
 
+openapi.route("/applications", applicationsRouter);
+
 // Register other endpoints
 openapi.post("/dummy/:slug", DummyEndpoint);
 
-// Export the Hono app
-// Export the Hono app
 export default openapi;
