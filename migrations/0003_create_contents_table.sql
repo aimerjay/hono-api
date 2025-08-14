@@ -5,6 +5,6 @@ CREATE TABLE IF NOT EXISTS contents (
     institution TEXT NOT NULL,
     course TEXT NOT NULL,
     date_grad DATE,
-    testimony TEXT,
+    testimony TEXT NOT NULL,
     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
 );

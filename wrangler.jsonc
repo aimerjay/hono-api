@@ -44,8 +44,8 @@
 	"d1_databases": [
 		{
 			"binding": "DB",
-			"database_name": "hono-d1-api",
-			"database_id": "f6b5d3b1-0a3e-42d8-b30d-a440104b1407"
+			"database_name": "hono-api-v1",
+			"database_id": "947fb08c-4882-4b2e-8e41-eda41b621489"
 		}
 	]
 }
