@@ -5,11 +5,16 @@ import { applicationRead } from "./applicationRead";
 import { applicationList } from "./applicationList";
 import { applicationUpdate } from "./applicationUpdate";
 import { applicationDelete } from "./applicationDelete";
+import {
+  createApplicationService
+} from "./applicationServices";
 
 export const applicationsRouter =  fromHono(new Hono());
 
 applicationsRouter.get("/", applicationList);
-applicationsRouter.post("/", applicationCreate);
+// applicationsRouter.post("/", applicationCreate);
 applicationsRouter.get("/:id", applicationRead);
 applicationsRouter.put("/:id", applicationUpdate);
 applicationsRouter.delete("/:id", applicationDelete);
+
+applicationsRouter.post("/", createApplicationService);

@@ -1,0 +1,54 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Applications API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/applications": {
+      "post": {
+        "summary": "Create a new application",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "full_name": { "type": "string", "description": "Applicant's full name" },
+                  "email": { "type": "string", "description": "Applicant's email address" },
+                  "institution": { "type": "string", "description": "Applicant's institution" },
+                  "course": { "type": "string", "description": "Applicant's course" },
+                  "statement": { "type": "string", "description": "Applicant's statement" }
+                },
+                "required": ["full_name", "email"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created application",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "integer", "description": "Application ID" },
+                    "formatted_id": { "type": "string", "description": "Formatted application ID" },
+                    "full_name": { "type": "string", "description": "Applicant's full name" },
+                    "email": { "type": "string", "description": "Applicant's email address" },
+                    "institution": { "type": "string", "description": "Applicant's institution" },
+                    "course": { "type": "string", "description": "Applicant's course" },
+                    "statement": { "type": "string", "description": "Applicant's statement" },
+                    "timestamp": { "type": "string", "description": "Creation timestamp" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

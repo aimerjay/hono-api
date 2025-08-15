@@ -18,3 +18,22 @@ export const ApplicationModel = {
   serializer: (obj: object) => ({ ...obj }),
   serializerObject: application,
 };
+
+export const applicationCreateSchema = z.object({
+  full_name: z.string(),
+  email: z.string(),
+  institution: z.string().optional(),
+  course: z.string().optional(),
+  statement: z.string().optional(),
+});
+
+export const applicationResponseSchema = z.object({
+  id: z.number(),
+  formatted_id: z.string(),
+  full_name: z.string(),
+  email: z.string(),
+  institution: z.string().optional(),
+  course: z.string().optional(),
+  statement: z.string().optional(),
+  timestamp: z.string(),
+});
