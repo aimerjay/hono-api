@@ -12,9 +12,9 @@ import {
 export const applicationsRouter =  fromHono(new Hono());
 
 applicationsRouter.get("/", applicationList);
-// applicationsRouter.post("/", applicationCreate);
+applicationsRouter.post("/", applicationCreate);
 applicationsRouter.get("/:id", applicationRead);
 applicationsRouter.put("/:id", applicationUpdate);
 applicationsRouter.delete("/:id", applicationDelete);
 
-applicationsRouter.post("/", createApplicationService);
+// applicationsRouter.post("/", createApplicationService);
