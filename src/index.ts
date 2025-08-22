@@ -3,6 +3,7 @@ import { Hono } from "hono";
 import { tasksRouter } from "./endpoints/tasks/router";
 import { contentsRouter} from "./endpoints/contents/router";
 import { applicationsRouter} from "./endpoints/applications/router";
+import { ApplicationCreateEndpoint } from "./endpoints/applications/applicationCreateOpenAPI";
 import { ContentfulStatusCode } from "hono/utils/http-status";
 import { DummyEndpoint } from "./endpoints/dummyEndpoint";
 
@@ -48,6 +49,8 @@ openapi.route("/tasks", tasksRouter);
 openapi.route("/contents", contentsRouter);
 
 openapi.route("/applications", applicationsRouter);
+// Register OpenAPI POST endpoint for applications
+openapi.post("/applications", ApplicationCreateEndpoint);
 
 // Register other endpoints
 openapi.post("/dummy/:slug", DummyEndpoint);
