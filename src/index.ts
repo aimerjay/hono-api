@@ -1,4 +1,5 @@
 import { ApiException, fromHono } from "chanfana";
+import { cors } from 'hono/cors'
 import { Hono } from "hono";
 import { tasksRouter } from "./endpoints/tasks/router";
 import { contentsRouter} from "./endpoints/contents/router";
@@ -8,7 +9,20 @@ import { ContentfulStatusCode } from "hono/utils/http-status";
 import { DummyEndpoint } from "./endpoints/dummyEndpoint";
 
 // Start a Hono app
+
 const app = new Hono<{ Bindings: Env }>();
+
+// Apply CORS middleware globally
+app.use("/*", cors({
+  origin: (origin: string | undefined) => {
+    // Allow only *.svelte-3.pages.dev
+    if (typeof origin === "string" && /https?:\/\/.+\.svelte-3\.pages\.dev$/.test(origin)) {
+      return origin;
+    }
+    return ""; // Disallow other origins
+  },
+  allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+}));
 
 app.onError((err, c) => {
   if (err instanceof ApiException) {
