@@ -14,7 +14,7 @@ export class ApplicationCreateEndpoint extends OpenAPIRoute {
               institution: z.string().optional(),
               course: z.string().optional(),
               statement: z.string().optional(),
-              status: z.enum(["Submitted", "Approved", "Declined"]).optional(),
+              status: z.enum(["Submitted", "Approved", "Declined", "Final Interview"]).optional(),
             })
           }
         }
@@ -33,7 +33,7 @@ export class ApplicationCreateEndpoint extends OpenAPIRoute {
               institution: z.string().optional(),
               course: z.string().optional(),
               statement: z.string().optional(),
-              status: z.enum(["Submitted", "Approved", "Declined"]),
+              status: z.enum(["Submitted", "Approved", "Declined", "Final Interview"]),
               timestamp: z.string(),
             })
           }
