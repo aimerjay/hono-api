@@ -21,7 +21,7 @@ export class ApplicationCreateEndpoint extends OpenAPIRoute {
       }
     },
     responses: {
-      200: {
+      201: {
         description: "Successful creation",
         content: {
           'application/json': {
