@@ -14,6 +14,7 @@ export class ApplicationCreateEndpoint extends OpenAPIRoute {
               institution: z.string().optional(),
               course: z.string().optional(),
               statement: z.string().optional(),
+              status: z.enum(["Submitted", "Approved", "Declined"]).optional(),
             })
           }
         }
@@ -32,6 +33,7 @@ export class ApplicationCreateEndpoint extends OpenAPIRoute {
               institution: z.string().optional(),
               course: z.string().optional(),
               statement: z.string().optional(),
+              status: z.enum(["Submitted", "Approved", "Declined"]),
               timestamp: z.string(),
             })
           }
@@ -65,8 +67,9 @@ export class ApplicationCreateEndpoint extends OpenAPIRoute {
     const formatted_id = generateBaseFormattedId() + String(nextId).padStart(5, '0');
     const timestamp = new Date().toISOString();
 
+    const status = body.status ?? "Submitted";
     await db.prepare(
-      `INSERT INTO applications (formatted_id, full_name, email, institution, course, statement, timestamp) VALUES (?, ?, ?, ?, ?, ?, ?)`
+      `INSERT INTO applications (formatted_id, full_name, email, institution, course, statement, status, timestamp) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
     ).bind(
       formatted_id,
       body.full_name,
@@ -74,6 +77,7 @@ export class ApplicationCreateEndpoint extends OpenAPIRoute {
       body.institution,
       body.course,
       body.statement,
+      status,
       timestamp
     ).run();
 
@@ -85,6 +89,7 @@ export class ApplicationCreateEndpoint extends OpenAPIRoute {
       institution: body.institution,
       course: body.course,
       statement: body.statement,
+      status,
       timestamp,
     });
   }

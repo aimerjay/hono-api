@@ -8,6 +8,7 @@ export const application = z.object({
   institution: z.string(),
   course: z.string(),
   statement: z.string(),
+  status: z.enum(["Submitted", "Approved", "Declined"]),
   timestamp: z.string(),
 });
 
@@ -25,6 +26,7 @@ export const applicationCreateSchema = z.object({
   institution: z.string().optional(),
   course: z.string().optional(),
   statement: z.string().optional(),
+  status: z.enum(["Submitted", "Approved", "Declined"]).optional(),
 });
 
 export const applicationResponseSchema = z.object({
@@ -35,5 +37,6 @@ export const applicationResponseSchema = z.object({
   institution: z.string().optional(),
   course: z.string().optional(),
   statement: z.string().optional(),
+  status: z.enum(["Submitted", "Approved", "Declined"]),
   timestamp: z.string(),
 });

@@ -7,11 +7,12 @@ export class applicationUpdate extends D1UpdateEndpoint<HandleArgs> {
     model: ApplicationModel,
   idField: "id",
   fields: ApplicationModel.schema.pick({
-    full_name: true,
-    email: true,
-    institution: true,
-    course: true,
-    statement: true,
+  full_name: true,
+  email: true,
+  institution: true,
+  course: true,
+  statement: true,
+  status: true,
     // formatted_id and timestamp are auto
     }),
   };

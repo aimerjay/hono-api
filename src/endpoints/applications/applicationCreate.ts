@@ -21,9 +21,10 @@ export async function applicationCreate(c: any) {
   const formatted_id = generateBaseFormattedId() + String(nextId).padStart(5, '0');
   const timestamp = new Date().toISOString();
 
-  // Insert into DB with formatted_id
+  // Insert into DB with formatted_id and status
+  const status = body.status ?? "Submitted";
   const result = await db.prepare(
-    `INSERT INTO applications (formatted_id, full_name, email, institution, course, statement, timestamp) VALUES (?, ?, ?, ?, ?, ?, ?)`
+    `INSERT INTO applications (formatted_id, full_name, email, institution, course, statement, status, timestamp) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
   ).bind(
     formatted_id,
     body.full_name,
@@ -31,6 +32,7 @@ export async function applicationCreate(c: any) {
     body.institution,
     body.course,
     body.statement,
+    status,
     timestamp
   ).run();
 
@@ -39,6 +41,7 @@ export async function applicationCreate(c: any) {
     id: nextId,
     formatted_id,
     ...body,
+    status,
     timestamp,
   }, 201);
 }
